@@ -60,9 +60,23 @@ class Fraccion(
         return Fraccion(nuevoNumerador, nuevoDenominador)
     }
     
-    /**
-     * Método privado para simplificar la fracción usando el MCD
-     */
+    operator fun times(otra: Fraccion): Fraccion {
+        // (a/b) * (c/d) = (a * c) / (b * d)
+        val nuevoNumerador = this._numerador * otra._numerador
+        val nuevoDenominador = this._denominador * otra._denominador
+        return Fraccion(nuevoNumerador, nuevoDenominador)
+    }
+
+    operator fun div(otra: Fraccion): Fraccion {
+        if (otra._numerador == 0) {
+            throw IllegalArgumentException("No se puede dividir por una fracción con numerador cero")
+        }
+        // (a/b) / (c/d) = (a * d) / (b * c)
+        val nuevoNumerador = this._numerador * otra._denominador
+        val nuevoDenominador = this._denominador * otra._numerador
+        return Fraccion(nuevoNumerador, nuevoDenominador)
+    }
+
     private fun simplificar() {
         val mcd = calcularMCD(kotlin.math.abs(_numerador), kotlin.math.abs(_denominador))
         if (mcd > 1) {
@@ -70,33 +84,27 @@ class Fraccion(
             _denominador /= mcd
         }
     }
-    
-    /**
-     * Calcula el Máximo Común Divisor usando el algoritmo de Euclides
-     */
+
     private fun calcularMCD(a: Int, b: Int): Int {
         return if (b == 0) a else calcularMCD(b, a % b)
     }
-    
-    fun obtenerValor(): String {
-        return toString()
-    }
-    
-    fun mostrarFraccion(): String {
-        return "$_numerador / $_denominador es una fracción"
-    }
-    
-    /**
-     * Convierte la fracción a decimal
-     */
+
     fun toDecimal(): Double = _numerador.toDouble() / _denominador.toDouble()
-    
+
     override fun toString(): String {
         return if (_denominador == 1) {
             _numerador.toString()
         } else {
             "$_numerador/$_denominador"
         }
+    }
+
+    fun obtenerValor(): String {
+        return toString()
+    }
+    
+    fun mostrarFraccion(): String {
+        return "$_numerador / $_denominador es una fracción"
     }
     
     /**
