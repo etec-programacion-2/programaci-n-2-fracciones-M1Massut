@@ -6,7 +6,7 @@ class Fraccion(
 ) {
     private var _numerador: Int = numerador
     private var _denominador: Int = denominador
-    
+
     init {
         if (denominador == 0) throw IllegalArgumentException("El denominador no puede ser cero")
         
@@ -15,18 +15,18 @@ class Fraccion(
             _numerador = -_numerador
             _denominador = -_denominador
         }
-        
+
         // Simplificar la fracción al crearla
         simplificar()
     }
-    
+
     var numerador: Int
         get() = _numerador
         set(value) { 
             _numerador = value
             simplificar()
         }
-    
+
     var denominador: Int
         get() = _denominador
         set(value) {
@@ -39,7 +39,7 @@ class Fraccion(
             }
             simplificar()
         }
-    
+
     /**
      * Operador de suma para fracciones
      * Formula: (a/b) + (c/d) = (a*d + b*c)/(b*d)
@@ -49,7 +49,7 @@ class Fraccion(
         val nuevoDenominador = this._denominador * otra._denominador
         return Fraccion(nuevoNumerador, nuevoDenominador)
     }
-    
+
     /**
      * Operador de resta para fracciones
      * Formula: (a/b) - (c/d) = (a*d - b*c)/(b*d)
@@ -59,7 +59,7 @@ class Fraccion(
         val nuevoDenominador = this._denominador * otra._denominador
         return Fraccion(nuevoNumerador, nuevoDenominador)
     }
-    
+
     operator fun times(otra: Fraccion): Fraccion {
         // (a/b) * (c/d) = (a * c) / (b * d)
         val nuevoNumerador = this._numerador * otra._numerador
@@ -77,6 +77,9 @@ class Fraccion(
         return Fraccion(nuevoNumerador, nuevoDenominador)
     }
 
+    /**
+     * Método privado para simplificar la fracción
+     */
     private fun simplificar() {
         val mcd = calcularMCD(kotlin.math.abs(_numerador), kotlin.math.abs(_denominador))
         if (mcd > 1) {
@@ -85,28 +88,44 @@ class Fraccion(
         }
     }
 
+    /**
+     * Calcula el Máximo Común Divisor utilizando el algoritmo de Euclides
+     */
     private fun calcularMCD(a: Int, b: Int): Int {
         return if (b == 0) a else calcularMCD(b, a % b)
     }
 
-    fun toDecimal(): Double = _numerador.toDouble() / _denominador.toDouble()
+    /**
+     * Método para convertir la fracción a su representación decimal
+     */
+    fun aDecimal(): Double = _numerador.toDouble() / _denominador.toDouble()
 
-    override fun toString(): String {
-        return if (_denominador == 1) {
-            _numerador.toString()
-        } else {
-            "$_numerador/$_denominador"
+    /**
+     * Método para crear una fracción desde un decimal
+     * Utiliza una aproximación simple multiplicando por 10000 para obtener la fracción más cercana
+     */
+    companion object {
+        fun desdeDecimal(decimal: Double): Fraccion {
+            val denominador = 10000
+            val numerador = (decimal * denominador).toInt()
+            return Fraccion(numerador, denominador).simplificar()
         }
     }
 
-    fun obtenerValor(): String {
-        return toString()
+    /**
+     * Compara dos fracciones
+     * Devuelve un valor negativo si la fracción actual es menor, positivo si es mayor y 0 si son iguales
+     */
+    operator fun compareTo(otra: Fraccion): Int {
+        val thisDecimal = this.aDecimal()
+        val otherDecimal = otra.aDecimal()
+        return when {
+            thisDecimal < otherDecimal -> -1
+            thisDecimal > otherDecimal -> 1
+            else -> 0
+        }
     }
-    
-    fun mostrarFraccion(): String {
-        return "$_numerador / $_denominador es una fracción"
-    }
-    
+
     /**
      * Verifica si dos fracciones son iguales
      */
@@ -115,8 +134,41 @@ class Fraccion(
         if (other !is Fraccion) return false
         return _numerador == other._numerador && _denominador == other._denominador
     }
-    
+
     override fun hashCode(): Int {
         return 31 * _numerador + _denominador
+    }
+
+    /**
+     * Verifica si la fracción actual es mayor que otra
+     */
+    fun esMayor(otra: Fraccion): Boolean {
+        return this.compareTo(otra) > 0
+    }
+
+    /**
+     * Verifica si la fracción actual es menor que otra
+     */
+    fun esMenor(otra: Fraccion): Boolean {
+        return this.compareTo(otra) < 0
+    }
+
+    /**
+     * Representación de la fracción en forma de cadena
+     */
+    override fun toString(): String {
+        return if (_denominador == 1) {
+            _numerador.toString()
+        } else {
+            "$_numerador/$_denominador"
+        }
+    }
+    
+    fun obtenerValor(): String {
+        return toString()
+    }
+    
+    fun mostrarFraccion(): String {
+        return "$_numerador / $_denominador es una fracción"
     }
 }
