@@ -4,5 +4,13 @@
 package org.example
 
 fun main() {
-    println("Hola app!")
+    val fra0 = Fraccion(5, 4)
+    val fra1 = Fraccion(3, 2)
+    println(fra0.mostrarFraccion()) 
+    println(fra0 + fra1)// aca se imprimira la suma (PLUS)
+    println(fra0 - fra1)// se impreme la resta de las fracciones (MINUS)
+    println(fra0 * fra1)// Se implementa el operador multiplicación (TIMES)
+    println(fra0 / fra1)// se hace la divición con el operador división (DIV)
+    
+
 }
