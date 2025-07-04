@@ -252,10 +252,10 @@ Es **obligatorio** entregar todos los prompts utilizados con inteligencias artif
 
 ```
 ### Prompt 1
-- Fecha: 2024-04-10
-- Herramienta: ChatGPT
-- Prompt: "¿Cómo implemento la suma de fracciones en Kotlin?"
-- Respuesta: "Puedes crear un método en la clase Fraccion que..."
+- Fecha: 2025-07-4
+- Herramienta: Claude
+- Prompt: "te voy a pasar dos codigos el cual es programación orientada a objetos y despues quiero que veas las consignas que el faltan que es lo siguiente que te paso"
+- Respuesta: "Perfecto, estoy listo para revisar los dos códigos de programación orientada a objetos y luego analizar las consignas que faltan implementar...."
 ```
 
 ---
