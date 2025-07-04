@@ -6,11 +6,27 @@ package org.example
 fun main() {
     val fra0 = Fraccion(5, 4)
     val fra1 = Fraccion(3, 2)
-    println(fra0.mostrarFraccion()) 
+    println(fra0.mostrarFraccion())
     println(fra0 + fra1)// aca se imprimira la suma (PLUS)
     println(fra0 - fra1)// se impreme la resta de las fracciones (MINUS)
     println(fra0 * fra1)// Se implementa el operador multiplicación (TIMES)
     println(fra0 / fra1)// se hace la divición con el operador división (DIV)
+    println("Comparaciones:")
     
-
+    // Ejemplos de comparaciones
+    when {
+        fra0.esMayor(fra1) -> println("$fra0 es mayor que $fra1")
+        fra0.esMenor(fra1) -> println("$fra0 es menor que $fra1")
+        else -> println("$fra0 es igual a $fra1")
+    }
+    
+    // Conversión a decimal
+    println("Conversión a decimal:")
+    println("${fra0.mostrarFraccion()} = ${fra0.aDecimal()}")
+    
+    // Desde decimal
+    println("Desde decimal:")
+    val decimal = 0.75
+    val fraccionDesdeDecimal = Fraccion.desdeDecimal(decimal)
+    println("$decimal = $fraccionDesdeDecimal")
 }

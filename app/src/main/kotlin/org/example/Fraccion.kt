@@ -60,18 +60,24 @@ class Fraccion(
         return Fraccion(nuevoNumerador, nuevoDenominador)
     }
 
+    /**
+     * Operador de multiplicación para fracciones
+     * Formula: (a/b) * (c/d) = (a * c) / (b * d)
+     */
     operator fun times(otra: Fraccion): Fraccion {
-        // (a/b) * (c/d) = (a * c) / (b * d)
         val nuevoNumerador = this._numerador * otra._numerador
         val nuevoDenominador = this._denominador * otra._denominador
         return Fraccion(nuevoNumerador, nuevoDenominador)
     }
 
+    /**
+     * Operador de división para fracciones
+     * Formula: (a/b) / (c/d) = (a * d) / (b * c)
+     */
     operator fun div(otra: Fraccion): Fraccion {
         if (otra._numerador == 0) {
             throw IllegalArgumentException("No se puede dividir por una fracción con numerador cero")
         }
-        // (a/b) / (c/d) = (a * d) / (b * c)
         val nuevoNumerador = this._numerador * otra._denominador
         val nuevoDenominador = this._denominador * otra._numerador
         return Fraccion(nuevoNumerador, nuevoDenominador)
@@ -108,7 +114,7 @@ class Fraccion(
         fun desdeDecimal(decimal: Double): Fraccion {
             val denominador = 10000
             val numerador = (decimal * denominador).toInt()
-            return Fraccion(numerador, denominador).simplificar()
+            return Fraccion(numerador, denominador)
         }
     }
 
@@ -164,11 +170,17 @@ class Fraccion(
         }
     }
     
+    /**
+     * Obtiene el valor como string (alias de toString)
+     */
     fun obtenerValor(): String {
         return toString()
     }
     
+    /**
+     * Muestra la fracción con formato descriptivo
+     */
     fun mostrarFraccion(): String {
-        return "$_numerador / $_denominador es una fracción"
+        return "$_numerador/$_denominador"
     }
 }
