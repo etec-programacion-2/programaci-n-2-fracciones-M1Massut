@@ -6,11 +6,11 @@
 
 ## Información del Alumno
 
-**Nombre y Apellido:** [Escribir aquí tu nombre y apellido]
+**Nombre y Apellido:** Máximo_Massut
 
-**Curso:** [Escribir aquí tu curso]
+**Curso:** 4°Informatica
 
-**Fecha de entrega:** [Escribir aquí la fecha de entrega]
+**Fecha de entrega:** 22-07-2025
 
 ---
 
@@ -167,6 +167,9 @@ El trabajo se divide en las siguientes etapas. **Al finalizar cada etapa, deber�
    - **Conversión a decimal:** Leer una fracción y mostrar su valor decimal
    - **Desde decimal:** Leer un decimal y mostrar la fracción equivalente
 
+   ```
+
+8. **Validacion
 5. **Ejemplos predefinidos:**
    Crear una función que muestre ejemplos de todas las operaciones:
    ```kotlin
@@ -190,7 +193,10 @@ El trabajo se divide en las siguientes etapas. **Al finalizar cada etapa, deber�
 6. **Manejo de errores:**
    - Usar try-catch para manejar excepciones (denominador cero, entrada inválida)
    - Mostrar mensajes de error claros al usuario
-   - Permitir reintentar la operación
+   - Permitir 
+   ```
+
+8. **Validacionreintentar la operación
    - Usar `scanner.nextLine()` después de `nextInt()` para limpiar el buffer
 
 7. **Bucle principal:**
@@ -252,10 +258,10 @@ Es **obligatorio** entregar todos los prompts utilizados con inteligencias artif
 
 ```
 ### Prompt 1
-- Fecha: 2024-04-10
-- Herramienta: ChatGPT
-- Prompt: "¿Cómo implemento la suma de fracciones en Kotlin?"
-- Respuesta: "Puedes crear un método en la clase Fraccion que..."
+- Fecha: 2025-07-4
+- Herramienta: Claude
+- Prompt: "te voy a pasar dos codigos el cual es programación orientada a objetos y despues quiero que veas las consignas que el faltan que es lo siguiente que te paso"
+- Respuesta: "Perfecto, estoy listo para revisar los dos códigos de programación orientada a objetos y luego analizar las consignas que faltan implementar...."
 ```
 
 ---
