@@ -6,11 +6,11 @@
 
 ## Información del Alumno
 
-**Nombre y Apellido:** [Máximo_Massut]
+**Nombre y Apellido:** Máximo_Massut
 
-**Curso:** [4°Informatica]
+**Curso:** 4°Informatica
 
-**Fecha de entrega:** [Escribir aquí la fecha de entrega]
+**Fecha de entrega:** 22-07-2025
 
 ---
 
@@ -167,6 +167,9 @@ El trabajo se divide en las siguientes etapas. **Al finalizar cada etapa, deber�
    - **Conversión a decimal:** Leer una fracción y mostrar su valor decimal
    - **Desde decimal:** Leer un decimal y mostrar la fracción equivalente
 
+   ```
+
+8. **Validacion
 5. **Ejemplos predefinidos:**
    Crear una función que muestre ejemplos de todas las operaciones:
    ```kotlin
@@ -190,7 +193,10 @@ El trabajo se divide en las siguientes etapas. **Al finalizar cada etapa, deber�
 6. **Manejo de errores:**
    - Usar try-catch para manejar excepciones (denominador cero, entrada inválida)
    - Mostrar mensajes de error claros al usuario
-   - Permitir reintentar la operación
+   - Permitir 
+   ```
+
+8. **Validacionreintentar la operación
    - Usar `scanner.nextLine()` después de `nextInt()` para limpiar el buffer
 
 7. **Bucle principal:**
