@@ -1,5 +1,4 @@
 package org.example
-
 import java.util.Scanner
 import java.util.InputMismatchException
 
